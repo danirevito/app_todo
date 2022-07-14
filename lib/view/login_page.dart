@@ -13,7 +13,7 @@ class _MyWidgetState extends State<loginpage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Colors.purple
+      backgroundColor: Colors.amber
     );
   }
 }
