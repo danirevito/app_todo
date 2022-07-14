@@ -1,0 +1,19 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
+class NovaTarefa extends StatefulWidget {
+  const NovaTarefa({Key? key}) : super(key: key);
+
+  @override
+  State<NovaTarefa> createState() => _NovaTarefaState();
+}
+
+class _NovaTarefaState extends State<NovaTarefa> {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      backgroundColor: Colors.purple,
+    );
+  }
+}
