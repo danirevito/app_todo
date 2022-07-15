@@ -39,8 +39,8 @@ class _NovaTarefaState extends State<NovaTarefa> {
                     ),
                     color: Colors.white,
                   ),
-                  child: Image.network(
-                    'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png',
+                  child: Image.asset(
+                    "images/coruja.png",
                     width: 40,
                     height: 40,
                   ),
