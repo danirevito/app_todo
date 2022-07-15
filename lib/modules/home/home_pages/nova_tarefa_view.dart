@@ -8,6 +8,11 @@ class NovaTarefa extends StatefulWidget {
 }
 
 class _NovaTarefaState extends State<NovaTarefa> {
+  // final _formKey = GlobalKey<FormState>();
+  // final TextEditingController formcontroller = TextEditingController();
+
+  // final formKey = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +21,7 @@ class _NovaTarefaState extends State<NovaTarefa> {
         toolbarHeight: 5,
         backgroundColor: Colors.white,
       ),
-      body: InkWell(
+      body: Center(
         child: Column(
           children: [
             Row(
@@ -24,6 +29,10 @@ class _NovaTarefaState extends State<NovaTarefa> {
                 Container(
                   height: 100,
                   width: 100,
+                  padding: const EdgeInsets.only(
+                    right: 20,
+                    bottom: 20,
+                  ),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(100),
@@ -31,14 +40,14 @@ class _NovaTarefaState extends State<NovaTarefa> {
                     color: Colors.white,
                   ),
                   child: Image.network(
-                    'https://drive.google.com/file/d/1M8Fdw3ldcHPzjO_hUmJum5PkXpA-pNac/view?usp=drivesdk',
-                    width: 30,
-                    height: 30,
+                    'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png',
+                    width: 40,
+                    height: 40,
                   ),
                 ),
                 Container(
                   height: 90,
-                  width: 300,
+                  width: 250,
                   padding: const EdgeInsets.only(
                     top: 50,
                     bottom: 10,
@@ -56,18 +65,44 @@ class _NovaTarefaState extends State<NovaTarefa> {
                 ),
               ],
             ),
-            Row(
-              children: [
-                Center(
-                  child: const TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Título da Tarefa',
+            SizedBox(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 40,
+                  left: 30,
+                  right: 30,
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
                     ),
+                    labelText: 'Título da Tarefa',
                   ),
                 ),
-              ],
+              ),
+            ),
+            SizedBox(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 10,
+                  left: 30,
+                  right: 30,
+                ),
+                child: TextField(
+                  maxLines: 10,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    labelText: 'Escreva uma descrição para sua tarefa',
+                  ),
+                ),
+              ),
             ),
           ],
         ),
