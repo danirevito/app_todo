@@ -88,7 +88,7 @@ class _NovaTarefaState extends State<NovaTarefa> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    labelText: 'Escreva uma descrição para sua tarefa',
+                    hintText: 'Escreva uma descrição para sua tarefa',
                   ),
                 ),
               ),
