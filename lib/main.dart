@@ -1,5 +1,4 @@
-import 'package:app_todo/modules/cadastre/cadastre_view.dart';
-import 'package:app_todo/modules/login/login_page.dart';
+import 'package:app_todo/modules/home/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,7 +7,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CadastreView(),
+      home: const ListagemTarefas(),
     );
   }
 }
