@@ -1,5 +1,5 @@
 import 'package:app_todo/modules/cadastre/cadastre_view.dart';
-import 'package:app_todo/modules/login/login_page.dart';
+import 'package:app_todo/modules/login/login_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'App Todo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CadastreView(),
+      home: CadastreView(),
     );
   }
 }
