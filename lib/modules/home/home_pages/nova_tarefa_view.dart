@@ -8,11 +8,6 @@ class NovaTarefa extends StatefulWidget {
 }
 
 class _NovaTarefaState extends State<NovaTarefa> {
-  // final _formKey = GlobalKey<FormState>();
-  // final TextEditingController formcontroller = TextEditingController();
-
-  // final formKey = '';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,13 +20,14 @@ class _NovaTarefaState extends State<NovaTarefa> {
         child: Column(
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
                 Container(
                   height: 100,
                   width: 100,
                   padding: const EdgeInsets.only(
-                    right: 20,
-                    bottom: 20,
+                    right: 15,
+                    bottom: 15,
                   ),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
@@ -41,26 +37,19 @@ class _NovaTarefaState extends State<NovaTarefa> {
                   ),
                   child: Image.asset(
                     "images/coruja.png",
-                    width: 40,
-                    height: 40,
+                    width: 90,
+                    height: 90,
                   ),
                 ),
-                Container(
-                  height: 90,
-                  width: 250,
-                  padding: const EdgeInsets.only(
-                    top: 50,
-                    bottom: 10,
-                    left: 60,
-                    right: 60,
-                  ),
-                  child: const Text(
-                    'Nova Tarefa',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                const SizedBox(
+                  width: 40,
+                ),
+                const Text(
+                  'Nova Tarefa',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
               ],
@@ -68,7 +57,7 @@ class _NovaTarefaState extends State<NovaTarefa> {
             SizedBox(
               child: Padding(
                 padding: const EdgeInsets.only(
-                  top: 40,
+                  top: 30,
                   left: 30,
                   right: 30,
                 ),
