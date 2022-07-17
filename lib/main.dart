@@ -1,5 +1,7 @@
-import 'package:app_todo/view/login_page.dart';
+
 import 'package:flutter/material.dart';
+
+import 'login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,11 +13,39 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const loginpage(),
+      title: 'Que bom que voltou',
+      theme: ThemeData(primarySwatch: Colors.purple),
+      
+      home: const LoginPage(),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// body: Center(
+//         child: Container(
+//           color: Colors.purple,
+//           alignment: Alignment.center,
+//            padding:const EdgeInsets.all(170),
+           
+//           child:const  Text(
+//             'Que bom que voltou',
+//             style: (TextStyle(
+//               fontSize:20,
+//             )),
+//             ),
+//         ),
+//       ),
+//       );
+//   }
+// } 
