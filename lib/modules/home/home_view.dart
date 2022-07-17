@@ -63,6 +63,7 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
                 ),
                 child: TextField(
                   decoration: InputDecoration(
+                    suffixIcon: const Icon(Icons.search),
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
@@ -73,122 +74,94 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
                 ),
               ),
             ),
-            SizedBox(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 10,
-                  left: 30,
-                  right: 30,
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              padding: EdgeInsets.all(15),
+              child: Text(
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio. Fusce consequat rhoncus convallis.',
+                style: TextStyle(
+                  fontSize: 16,
                 ),
-                child: TextField(
-                  maxLines: 12,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    hintText: 'Escreva uma descrição para sua tarefa',
-                  ),
+              ),
+              height: 130,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  bottomLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
+                  bottomRight: Radius.circular(20.0),
                 ),
+              ),
+              margin: EdgeInsets.only(
+                left: 30,
+                right: 30,
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 15,
+            ),
+            Container(
+              padding: EdgeInsets.all(15),
+              child: Text(
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio. Fusce consequat rhoncus convallis.',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              height: 130,
+              decoration: BoxDecoration(
+                color: Colors.white54,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  bottomLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
+                  bottomRight: Radius.circular(20.0),
+                ),
+              ),
+              margin: EdgeInsets.only(
+                left: 30,
+                right: 30,
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              padding: EdgeInsets.all(15),
+              child: Text(
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio. Fusce consequat rhoncus convallis.',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              height: 130,
+              decoration: BoxDecoration(
+                color: Colors.white70,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  bottomLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
+                  bottomRight: Radius.circular(20.0),
+                ),
+              ),
+              margin: EdgeInsets.only(
+                left: 30,
+                right: 30,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(30),
-                      bottomLeft: Radius.circular(30),
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                    color: Colors.white,
-                  ),
-                ),
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(30),
-                      bottomLeft: Radius.circular(30),
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                    color: Colors.white60,
-                  ),
-                ),
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(30),
-                      bottomLeft: Radius.circular(30),
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                    color: Colors.lightBlue,
-                  ),
-                ),
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(30),
-                      bottomLeft: Radius.circular(30),
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                    color: Colors.yellow,
-                  ),
-                ),
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(30),
-                      bottomLeft: Radius.circular(30),
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                    color: Colors.lightGreen,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Container(
-                  child: Icon(
-                    Icons.clear_rounded,
-                    size: 100.0,
-                    color: Colors.white,
-                  ),
-                  width: 150,
-                  height: 150,
-                ),
-                Container(
-                  child: Icon(
-                    Icons.check_rounded,
-                    size: 100.0,
-                    color: Colors.white,
-                  ),
-                  width: 150,
-                  height: 150,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.add_rounded,
+                  size: 100,
+                  color: Colors.white,
                 ),
               ],
             ),
