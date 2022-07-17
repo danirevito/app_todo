@@ -1,5 +1,6 @@
 import 'package:app_todo/modules/cadastre/cadastre_view.dart';
 import 'package:app_todo/modules/home/home_pages/nova_tarefa_view.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
