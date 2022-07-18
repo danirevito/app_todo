@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Que bom que voltou',
+    title: "Flutter Demo",
       theme: ThemeData(primarySwatch: Colors.purple),
-      
+      debugShowCheckedModeBanner: false,
       home: const LoginPage(),
     );
   }
