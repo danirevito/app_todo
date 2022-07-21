@@ -45,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontSize: 10,
                         fontWeight: FontWeight.bold),
                   ),
+                  
                 ),
               ],
             ),
