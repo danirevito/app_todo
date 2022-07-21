@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formkey = GlobalKey<FormState>();
   final _emailControler = TextEditingController();
- //final _senhaControler = TextEditingController();
+  //final _senhaControler = TextEditingController();
   bool enableObscure = true;
   @override
   Widget build(BuildContext context) {
@@ -61,11 +62,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.only(top: 15),
                 child: Form(
                   key: _formkey,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 50, right: 50),
+                    padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Column(
                       children: [
                         TextFormField(
@@ -78,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                             return null;
                           },
                           decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
+                            contentPadding: EdgeInsets.all(15),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.all(
                                 Radius.circular(10),
@@ -86,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             hintText: 'Numero de telefone, email, ou CPf',
                             hintStyle: TextStyle(
-                              fontSize: 12,
+                              fontSize: 16,
                               fontWeight: FontWeight.w500,
                               color: Color(0xFF3101B9),
                             ),
@@ -102,27 +103,24 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 15,
               ),
-
-              
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 15),
                 child: Form(
-                 
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Column(
                       children: [
                         TextFormField(
-                         // controller: _senhaControler,
+                          // controller: _senhaControler,
                           validator: (value) {
-                         //   _senhaControler.text = value!;
-                           // if (value.isEmpty) {
-                             // return 'Campo Obrigatòrio';
+                            //   _senhaControler.text = value!;
+                            // if (value.isEmpty) {
+                            // return 'Campo Obrigatòrio';
                             //}
                             return null;
                           },
                           decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
+                            contentPadding: EdgeInsets.all(15),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.all(
                                 Radius.circular(10),
@@ -130,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             hintText: 'senha',
                             hintStyle: TextStyle(
-                              fontSize: 12,
+                              fontSize: 16,
                               fontWeight: FontWeight.w500,
                               color: Color(0xFF3101B9),
                             ),
@@ -143,108 +141,46 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-           ],
-         ),
+            ],
+          ),
           const Padding(
-            padding: const EdgeInsets.only(left: 100, right: 100),
+            padding: EdgeInsets.only(
+              top: 60,
+            ),
           ),
-
-          ElevatedButton(
-            onPressed: () {
-            },
-            child: const Text('Entrar',style: TextStyle(),),
+          Center(
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Color(0xFF3101B9)),
+                  padding: MaterialStateProperty.all(
+                    EdgeInsets.all(10),
+                  ),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  )),
+              child: const Text(
+                'Entrar',
+                style: TextStyle(fontSize: 25),
+              ),
+            ),
           ),
-       ],
+          // ),
+          const Padding(
+            padding: EdgeInsets.all(40),
+          ),
+          SizedBox(height: 30),
+          const Text(
+            'Já possui cadastro? Clique aqui',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+        ],
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-              // Center(
-              //   child: Container(
-              //     width: 300,
-              //     child: TextField(
-              //       decoration: InputDecoration(
-              //         filled: true,
-              //         fillColor: Color.fromARGB(250, 250, 250, 250),
-              //         border: OutlineInputBorder(
-              //           borderRadius: BorderRadius.circular(10),
-              //         ),
-              //         labelText: 'senha',
-              //       ),
-              //     ),
-              //   ),
-              // ),
-//             ],
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-               
-          
-
-              
-//               Padding(
-//                 padding: const EdgeInsets.only(top: 20),
-//                 child: Form(
-//                   key: _formkey,
-//                   child: Padding(
-//                     padding: const EdgeInsets.only(left: 20, right: 20),
-//                     child: Column(
-//                       children: [
-//                         TextFormField(
-//                           controller: _senhaControler,
-//                           validator: (value) {
-//                             _senhaControler.text = value!;
-//                             if (value.isEmpty) {
-//                               return 'Campo Obrigatòrio';
-//                             }
-//                             return null;
-//                           },
-//                           decoration: const InputDecoration(
-//                             contentPadding: EdgeInsets.all(10),
-//                             border: OutlineInputBorder(
-//                               borderRadius: BorderRadius.all(
-//                                 Radius.circular(10),
-//                               ),
-//                             ),
-//                             hintText: 'senha',
-//                             hintStyle: TextStyle(
-//                               fontSize: 12,
-//                               fontWeight: FontWeight.w500,
-//                               color: Color(0xFF3101B9),
-//                             ),
-//                             fillColor: Colors.white,
-//                             filled: true,
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//            ],
-//          ),
-//           const Padding(
-//             padding: const EdgeInsets.only(left: 100, right: 100),
-//           ),
-
-//           ElevatedButton(
-//             onPressed: () {
-//             },
-//             child: const Text('Entrar'style: TextStyle(),),
-//           ),
-//        ],
-//       ),
-//     );
-//   }
-// }
