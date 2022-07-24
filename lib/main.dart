@@ -1,6 +1,7 @@
+import 'package:app_todo/modules/cadastre/cadastre_view.dart';
 import 'package:flutter/material.dart';
 
-import 'login_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -12,10 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Flutter Demo",
-      theme: ThemeData(primarySwatch: Colors.purple),
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const CadastreView(),
     );
   }
 }
