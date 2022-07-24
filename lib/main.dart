@@ -1,8 +1,7 @@
 import 'package:app_todo/modules/cadastre/cadastre_view.dart';
-import 'package:app_todo/modules/login/login_page.dart';
 import 'package:flutter/material.dart';
 
-import 'modules/login/login_page.dart';
+
 
 void main() {
   runApp(const MyApp());
