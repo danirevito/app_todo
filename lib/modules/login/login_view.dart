@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter/gestures.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,166 +17,215 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.purple,
-      body: Column(
-        children: [
-          Container(
-            height: 290,
-            width: 550,
-            decoration: const BoxDecoration(
+      body: loginColumn(),
+    );
+  }
+
+  Widget loginColumn() {
+    return Column(
+      children: [
+        logoLovepeople(),
+        textinfo(),
+        formUser(),
+        formPasswword(),
+        textForgotPassword(),
+        buttonConfirm(),
+        textNewUser(),
+      ],
+    );
+  }
+
+  Widget buttonConfirm() {
+    return Padding(
+      padding: const EdgeInsets.all(80.0),
+      child: Center(
+        child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            primary: Colors.blue.shade900,
+            onPrimary: Colors.white,
+            side: BorderSide(
               color: Colors.white,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(190),
-                bottomRight: Radius.circular(190),
-              ),
             ),
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Center(
-                  child: Image.asset('assets/logo.png'),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(bottom: 60),
-                  child: const Text(
-                    'Lovepeople',
-                    style: TextStyle(
-                        color: Color(0xFF3101B9),
-                        fontFamily: 'Montserrat-Bold',
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
+            shape: const BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(5))),
           ),
-          Column(
+          child: const Text(
+            'Entrar',
+            style: TextStyle(fontSize: 25),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget textForgotPassword() {
+    return RichText(
+     
+      text: TextSpan(
+          text: "Esqueceu seu login ou senha? ",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 14,
+          ),
+          children: <TextSpan>[
+            TextSpan(
+                text: 'Clique aqui.',
+                style: TextStyle(
+                  color: Colors.yellow,
+                  fontSize: 14,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    print("clicou");
+                  }),
+          ]),
+    );
+  }
+
+  Widget textNewUser() {
+    return RichText(
+      text: TextSpan(
+          text: 'Não possui cadastro? ',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 17,
+          ),
+          children: <TextSpan>[
+            TextSpan(
+                text: 'Clique aqui.',
+                style: TextStyle(
+                  color: Colors.yellow,
+                  fontSize: 17,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    print("clicou");
+                  }),
+          ]),
+    );
+  }
+
+  Widget formPasswword() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 15),
+      child: Form(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 50),
-                child: Text(
-                  'Que bom que voce voltou !',
-                  style: TextStyle(
-                      fontFamily: 'Montserrat-Bold',
-                      color: Colors.white,
-                      fontSize: 25),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: Form(
-                  key: _formkey,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          controller: _emailControler,
-                          validator: (value) {
-                            _emailControler.text = value!;
-                            if (value.isEmpty) {
-                              return 'Campo Obrigatòrio';
-                            }
-                            return null;
-                          },
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.all(15),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            hintText: 'Numero de telefone, email, ou CPf',
-                            hintStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xFF3101B9),
-                            ),
-                            fillColor: Colors.white,
-                            filled: true,
-                          ),
-                        ),
-                      ],
+              TextFormField(
+                // controller: _senhaControler,
+                validator: (value) {
+                  //   _senhaControler.text = value!;
+                  // if (value.isEmpty) {
+                  // return 'Campo Obrigatòrio';
+                  //}
+                  return null;
+                },
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.all(15),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
                     ),
                   ),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: Form(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          // controller: _senhaControler,
-                          validator: (value) {
-                            //   _senhaControler.text = value!;
-                            // if (value.isEmpty) {
-                            // return 'Campo Obrigatòrio';
-                            //}
-                            return null;
-                          },
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.all(15),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            hintText: 'senha',
-                            hintStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xFF3101B9),
-                            ),
-                            fillColor: Colors.white,
-                            filled: true,
-                          ),
-                        ),
-                      ],
-                    ),
+                  hintText: 'senha',
+                  hintStyle: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF3101B9),
                   ),
+                  fillColor: Colors.white,
+                  filled: true,
                 ),
               ),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.only(
-              top: 60,
-            ),
-          ),
-          Center(
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Color(0xFF3101B9)),
-                  padding: MaterialStateProperty.all(
-                    EdgeInsets.all(10),
-                  ),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+        ),
+      ),
+    );
+  }
+
+  Widget formUser() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Form(
+        key: _formkey,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Column(
+            children: [
+              TextFormField(
+                controller: _emailControler,
+                validator: (value) {
+                  _emailControler.text = value!;
+                  if (value.isEmpty) {
+                    return 'Campo Obrigatòrio';
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.all(15),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
                     ),
-                  )),
-              child: const Text(
-                'Entrar',
-                style: TextStyle(fontSize: 25),
+                  ),
+                  hintText: 'Numero de telefone, email, ou CPf',
+                  hintStyle: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF3101B9),
+                  ),
+                  fillColor: Colors.white,
+                  filled: true,
+                ),
               ),
-            ),
+            ],
           ),
-          // ),
-          const Padding(
-            padding: EdgeInsets.all(40),
+        ),
+      ),
+    );
+  }
+
+  Widget textinfo() {
+    return const Padding(
+      padding: EdgeInsets.only(top: 50),
+      child: Text(
+        'Que bom que voce voltou !',
+        style: TextStyle(
+            fontFamily: 'Montserrat-Bold', color: Colors.white, fontSize: 25),
+      ),
+    );
+  }
+
+  Widget logoLovepeople() {
+    return Container(
+      height: 290,
+      width: 550,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(190),
+          bottomRight: Radius.circular(190),
+        ),
+      ),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Center(
+            child: Image.asset('assets/logo.png'),
           ),
-          SizedBox(height: 30),
-          const Text(
-            'Já possui cadastro? Clique aqui',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
+          Container(
+            margin: const EdgeInsets.only(bottom: 60),
+            child: const Text(
+              'Lovepeople',
+              style: TextStyle(
+                  color: Color(0xFF3101B9),
+                  fontFamily: 'Montserrat-Bold',
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold),
             ),
           ),
         ],
