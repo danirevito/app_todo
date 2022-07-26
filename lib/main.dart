@@ -1,6 +1,10 @@
-import 'package:app_todo/modules/cadastre/cadastre_view.dart';
-import 'package:app_todo/modules/home/home_pages/nova_tarefa_view.dart';
+// <<<<<<< rafa/nova_tarefa
+// import 'package:app_todo/modules/cadastre/cadastre_view.dart';
+// import 'package:app_todo/modules/home/home_pages/nova_tarefa_view.dart';
 
+// =======
+// import 'package:app_todo/modules/home/home_view.dart';
+// >>>>>>> master
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +22,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const NovaTarefa(),
+// <<<<<<< rafa/nova_tarefa
+//       home: const NovaTarefa(),
+// =======
+//       home: const ListagemTarefas(),
+// >>>>>>> master
     );
   }
 }
