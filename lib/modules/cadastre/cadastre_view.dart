@@ -10,100 +10,131 @@ class CadastreView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 196, 72, 218),
-      body: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Center(
-                heightFactor: 5,
-                child: Text(
-                  'Vamos começar!',
-                  textDirection: TextDirection.ltr,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 27,
-                  ),
-                ),
-              ),
-              Center(
-                child: TextField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Color.fromARGB(255, 255, 255, 255),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
+    return ChangeNotifierProvider(
+      create: (context) => CadastrePresenter(),
+      child: Consumer<CadastrePresenter>(
+          builder: (context, cadastrePresenter, child) {
+        return Scaffold(
+          backgroundColor: const Color.fromARGB(255, 196, 72, 218),
+          body: SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsets.all(6),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Center(
+                    heightFactor: 6,
+                    child: Text(
+                      'Vamos começar!',
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 27,
+                      ),
                     ),
-                    labelText: 'Nome',
                   ),
-                ),
-              ),
-              SizedBox(height: 10),
-              Center(
-                child: TextField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Color.fromARGB(255, 255, 255, 255),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
+                  Center(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 255, 255, 255),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        labelText: 'Nome',
+                      ),
                     ),
-                    labelText: 'Número de telefone, e-mail ou CPF',
                   ),
-                ),
-              ),
-              SizedBox(height: 10),
-              Center(
-                child: TextField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Color.fromARGB(255, 255, 255, 255),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
+                  SizedBox(height: 10),
+                  Center(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 255, 255, 255),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        labelText: 'Número de telefone, e-mail ou CPF',
+                      ),
                     ),
-                    labelText: 'Senha',
                   ),
-                ),
-              ),
-              SizedBox(height: 10),
-              Center(
-                child: TextField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Color.fromARGB(255, 255, 255, 255),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
+                  SizedBox(height: 10),
+                  Center(
+                    child: TextField(
+                      obscureText: cadastrePresenter.model.obscurePassword,
+                      decoration: InputDecoration(
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        suffixIcon: IconButton(
+                          icon: Icon(cadastrePresenter.model.obscurePassword
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                          onPressed: () {
+                            cadastrePresenter.alternaExibeSenha();
+                          },
+                        ),
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 255, 255, 255),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        labelText: 'Senha',
+                      ),
                     ),
-                    labelText: 'Confirmar senha',
                   ),
-                ),
+                  SizedBox(height: 10),
+                  Center(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        suffixIcon: IconButton(
+                          icon: Icon(cadastrePresenter.model.obscurePassword
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                          onPressed: () {},
+                        ),
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 255, 255, 255),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        labelText: 'Confirmar senha',
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 32),
+                  ElevatedButton(
+                    child: Text('Cadastrar'),
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                          side: BorderSide(color: Colors.white),
+                      primary: Color.fromARGB(255, 3, 78, 209),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                      textStyle:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(height: 198),
+                  Divider(),
+                  SizedBox(height: 24),
+                  const Text(
+                    'Já possui cadastro? Entrar',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
               ),
-              ElevatedButton(
-                child: Text('Cadastrar'),
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(),
-              ),
-              //SizedBox(height: 20),
-              const Center(
-                child: TextField(
-                  maxLines: 12,
-                ),
-              ),
-              const SizedBox(height: 30),
-              const Text(
-                'Já possui cadastro? Entrar',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
-              ),
-            ],
+            ),
           ),
-        ]),
-      ),
+        );
+      }),
     );
 
     // ChangeNotifierProvider(

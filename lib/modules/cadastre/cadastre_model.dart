@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
 class CadastreModel {
-  String nome = "  ";
+ bool obscurePassword = true;
 }
