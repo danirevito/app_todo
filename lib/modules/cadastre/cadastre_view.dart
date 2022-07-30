@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:app_todo/modules/cadastre/cadastre_presenter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -93,7 +95,9 @@ class CadastreView extends StatelessWidget {
                           icon: Icon(cadastrePresenter.model.obscurePassword
                               ? Icons.visibility
                               : Icons.visibility_off),
-                          onPressed: () {},
+                          onPressed: () {
+                            cadastrePresenter.alternaExibeSenha();
+                          },
                         ),
                         filled: true,
                         fillColor: Color.fromARGB(255, 255, 255, 255),
@@ -107,7 +111,9 @@ class CadastreView extends StatelessWidget {
                   SizedBox(height: 32),
                   ElevatedButton(
                     child: Text('Cadastrar'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/cadastroConcluido');
+                    },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12)),

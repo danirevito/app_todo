@@ -1,4 +1,7 @@
+import 'package:app_todo/modules/cadastre/cadastre_sucess.dart';
 import 'package:app_todo/modules/cadastre/cadastre_view.dart';
+import 'package:app_todo/modules/home/home_pages/nova_tarefa_view.dart';
+import 'package:app_todo/modules/home/home_view.dart';
 import 'package:app_todo/modules/login/login_view.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +20,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CadastreView(),
+      routes: {
+        '/':(context) => const LoginPage(),
+        '/cadastro':(context) => CadastreView(),
+        '/cadastroConcluido':(context) => CadastreSucess(),
+        '/homepage':(context) => const ListagemTarefas(),
+        '/novatarefa':(context) => const NovaTarefa(),
+      },
+      //home: CadastreView(),
     );
   }
 }
