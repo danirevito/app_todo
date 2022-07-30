@@ -158,11 +158,12 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.add_rounded,
-                  size: 100,
-                  color: Colors.white,
-                ),
+                // const IconButton(
+
+                //   icon: Icon(Icons.add_rounded),
+                //   iconSize: 100,
+                //   color: Colors.white,
+                // ),
               ],
             ),
           ],

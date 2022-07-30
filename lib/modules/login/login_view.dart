@@ -61,7 +61,6 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget textForgotPassword() {
     return RichText(
-     
       text: TextSpan(
           text: "Esqueceu seu login ou senha? ",
           style: TextStyle(
@@ -215,7 +214,7 @@ class _LoginPageState extends State<LoginPage> {
         alignment: Alignment.bottomCenter,
         children: [
           Center(
-            child: Image.asset('assets/logo.png'),
+            child: Image.asset("assets/coruja.png"),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 60),
