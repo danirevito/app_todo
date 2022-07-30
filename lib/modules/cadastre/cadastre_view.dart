@@ -15,7 +15,7 @@ class CadastreView extends StatelessWidget {
       child: Consumer<CadastrePresenter>(
           builder: (context, cadastrePresenter, child) {
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 196, 72, 218),
+          backgroundColor: Color.fromARGB(255, 152, 36, 172),
           body: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.all(6),
@@ -111,7 +111,7 @@ class CadastreView extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12)),
-                          side: BorderSide(color: Colors.white),
+                      side: BorderSide(color: Colors.white),
                       primary: Color.fromARGB(255, 3, 78, 209),
                       padding:
                           EdgeInsets.symmetric(horizontal: 32, vertical: 16),
@@ -122,12 +122,22 @@ class CadastreView extends StatelessWidget {
                   const SizedBox(height: 198),
                   Divider(),
                   SizedBox(height: 24),
-                  const Text(
-                    'Já possui cadastro? Entrar',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
+                  RichText(
+                    text: const TextSpan(
+                        text: 'Já possui cadastro?',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          fontSize: 17,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Entrar',
+                            style: TextStyle(
+                              color: Colors.yellow,
+                              fontSize: 17,
+                            ),
+                          ),
+                        ]),
                   ),
                 ],
               ),
