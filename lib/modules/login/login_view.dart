@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
@@ -16,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple,
+      backgroundColor: Color.fromARGB(255, 152, 36, 172),
       body: loginColumn(),
     );
   }
@@ -100,6 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
                     print("clicou");
+                    Navigator.of(context).pushNamed('/cadastro');
                   }),
           ]),
     );

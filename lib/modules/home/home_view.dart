@@ -11,7 +11,7 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple,
+      backgroundColor: Color.fromARGB(255, 152, 36, 172),
       appBar: AppBar(
         toolbarHeight: 5,
         backgroundColor: Colors.white,
