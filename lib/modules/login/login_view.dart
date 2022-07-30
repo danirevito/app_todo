@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
                     print("clicou");
-                    Navigator.of(context).pushNamed('/homePage');
+                    Navigator.of(context).pushNamed('/cadastro');
                   }),
           ]),
     );
