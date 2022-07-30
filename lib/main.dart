@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
         '/':(context) => const LoginPage(),
         '/cadastro':(context) => CadastreView(),
         '/cadastroConcluido':(context) => CadastreSucess(),
-        '/homepage':(context) => const ListagemTarefas(),
-        '/novatarefa':(context) => const NovaTarefa(),
+        '/homePage':(context) => ListagemTarefas(),
+        '/novaTarefa':(context) => const NovaTarefa(),
       },
       //home: CadastreView(),
     );

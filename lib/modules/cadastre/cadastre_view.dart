@@ -6,6 +6,12 @@ import 'package:provider/provider.dart';
 
 class CadastreView extends StatelessWidget {
   CadastreView({Key? key}) : super(key: key);
+
+  Uri url = Uri.parse('https://todo-lovepeople.herokuapp.com/auth/local/register');
+
+  //http.post(url).then(value) {
+
+  }
   //final formKey = GlobalKey<FormState>();
   //final _controller = TextEditingController();
 
