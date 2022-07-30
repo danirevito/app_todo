@@ -11,7 +11,7 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple,
+      backgroundColor: Color.fromARGB(255, 152, 36, 172),
       appBar: AppBar(
         toolbarHeight: 5,
         backgroundColor: Colors.white,
@@ -79,36 +79,18 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
             ),
             Container(
               padding: EdgeInsets.all(15),
-              child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio. Fusce consequat rhoncus convallis.',
-                style: TextStyle(
-                  fontSize: 16,
+              child: ListTile(
+                title: Text(
+                  'Teste de título',
+                  style: const TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
-              ),
-              height: 130,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  bottomLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
-                  bottomRight: Radius.circular(20.0),
-                ),
-              ),
-              margin: EdgeInsets.only(
-                left: 30,
-                right: 30,
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Container(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio. Fusce consequat rhoncus convallis.',
-                style: TextStyle(
-                  fontSize: 16,
+                subtitle: Text(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio. Fusce consequat rhoncus convallis.',
+                  style: const TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
               height: 130,
@@ -128,29 +110,6 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
             ),
             const SizedBox(
               height: 15,
-            ),
-            Container(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio. Fusce consequat rhoncus convallis.',
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-              ),
-              height: 130,
-              decoration: BoxDecoration(
-                color: Colors.white70,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  bottomLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
-                  bottomRight: Radius.circular(20.0),
-                ),
-              ),
-              margin: EdgeInsets.only(
-                left: 30,
-                right: 30,
-              ),
             ),
             const SizedBox(
               height: 20,
