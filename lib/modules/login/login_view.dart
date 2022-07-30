@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 152, 36, 172),
-      body: loginColumn(),
+      body: SingleChildScrollView(child: loginColumn()),
     );
   }
 
@@ -218,7 +218,7 @@ class _LoginPageState extends State<LoginPage> {
         alignment: Alignment.bottomCenter,
         children: [
           Center(
-            child: Image.asset('assets/logo.png'),
+            child: Image.asset('assets/images/logo.png'),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 60),
