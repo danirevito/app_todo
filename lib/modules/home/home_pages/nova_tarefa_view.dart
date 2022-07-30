@@ -173,19 +173,25 @@ class _NovaTarefaState extends State<NovaTarefa> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
-                  child: Icon(
-                    Icons.clear_rounded,
-                    size: 100.0,
+                  child: IconButton(
+                    icon: Icon(Icons.clear_rounded),
+                    iconSize: 100,
                     color: Colors.white,
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/homepage');
+                    },
                   ),
                   width: 150,
                   height: 150,
                 ),
                 Container(
-                  child: Icon(
-                    Icons.check_rounded,
-                    size: 100.0,
+                  child: IconButton(
+                    icon: Icon(Icons.check_rounded),
+                    iconSize: 100,
                     color: Colors.white,
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/homepage');
+                    },
                   ),
                   width: 150,
                   height: 150,
