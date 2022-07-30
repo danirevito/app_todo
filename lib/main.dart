@@ -21,11 +21,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/':(context) => const LoginPage(),
-        '/cadastro':(context) => CadastreView(),
-        '/cadastroConcluido':(context) => CadastreSucess(),
-        '/homepage':(context) => const ListagemTarefas(),
-        '/novatarefa':(context) => const NovaTarefa(),
+        '/': (context) => const LoginPage(),
+        '/cadastro': (context) => CadastreView(),
+        '/cadastroConcluido': (context) => CadastreSucess(),
+        '/homepage': (context) => const ListagemTarefas(),
+        '/novatarefa': (context) => const NovaTarefa(),
       },
       //home: CadastreView(),
     );
