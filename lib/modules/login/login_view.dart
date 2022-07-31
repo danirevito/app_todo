@@ -1,5 +1,14 @@
+import 'dart:html';
+
+import 'package:dotted_line/dotted_line.dart';
+import 'package:app_todo/modules/login/login_presenter.dart';
+import 'package:app_todo/modules/login/login_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart ' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -10,49 +19,89 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formkey = GlobalKey<FormState>();
+
   final _emailControler = TextEditingController();
-  //final _senhaControler = TextEditingController();
+  final _senhaControler = TextEditingController();
   bool enableObscure = true;
+
+  @override
+  void didChangeDependencies() {
+    context.read()<LoginPresenter>().validacaoToken().then((value) {
+      if (value) {
+        paginaDaLista(context);
+      }
+    });
+    super.didChangeDependencies();
+  }
+
+  //var loginPresenter = LoginPresenter(LoginPresenter());
   @override
   Widget build(BuildContext context) {
+    SingleChildScrollView;
     return Scaffold(
       backgroundColor: Colors.purple,
-      body: loginColumn(),
+      body: Consumer<LoginPresenter>(
+        builder: (context, controller, child) {
+          return Column();
+        },
+      ),
     );
   }
 
   Widget loginColumn() {
-    return Column(
-      children: [
-        logoLovepeople(),
-        textinfo(),
-        formUser(),
-        formPasswword(),
-        textForgotPassword(),
-        buttonConfirm(),
-        textNewUser(),
-      ],
+    return SingleChildScrollView(
+      reverse: true,
+      child: Column(
+        children: [
+          logoLovepeople(),
+          textinfo(),
+          formUsuario(),
+          formSenha(),
+          textForgotPassword(),
+          buttonEntrar(),
+          textNewUser(),
+        ],
+      ),
     );
   }
 
-  Widget buttonConfirm() {
+  Widget buttonEntrar() {
     return Padding(
       padding: const EdgeInsets.all(80.0),
       child: Center(
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: Colors.blue.shade900,
-            onPrimary: Colors.white,
-            side: BorderSide(
-              color: Colors.white,
+        child: SingleChildScrollView(
+          reverse: true,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/cadastre');
+              if (_formkey.currentState!.validate()) {
+                _emailControler.text;
+                _senhaControler.text;
+                () {
+                  paginaDaLista(context);
+                };
+                () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('email ,ou senha invalidos'),
+                    ),
+                  );
+                };
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.blue.shade900,
+              onPrimary: Colors.white,
+              side: const BorderSide(
+                color: Colors.white,
+              ),
+              shape: const BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5))),
             ),
-            shape: const BeveledRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(5))),
-          ),
-          child: const Text(
-            'Entrar',
-            style: TextStyle(fontSize: 25),
+            child: const Text(
+              'Entrar',
+              style: TextStyle(fontSize: 25),
+            ),
           ),
         ),
       ),
@@ -61,22 +110,27 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget textForgotPassword() {
     return RichText(
-     
       text: TextSpan(
           text: "Esqueceu seu login ou senha? ",
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 14,
           ),
           children: <TextSpan>[
             TextSpan(
                 text: 'Clique aqui.',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.yellow,
                   fontSize: 14,
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
+                    Navigator.of(context).pushNamed('/cadastre');
+                    _formkey.currentState?.reset();
+                    Future.delayed(
+                      const Duration(seconds: 1),
+                    );
+
                     print("clicou");
                   }),
           ]),
@@ -87,26 +141,26 @@ class _LoginPageState extends State<LoginPage> {
     return RichText(
       text: TextSpan(
           text: 'Não possui cadastro? ',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 17,
           ),
           children: <TextSpan>[
             TextSpan(
                 text: 'Clique aqui.',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.yellow,
                   fontSize: 17,
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    print("clicou");
+                    //  print("clicou");
                   }),
           ]),
     );
   }
 
-  Widget formPasswword() {
+  Widget formSenha() {
     return Padding(
       padding: const EdgeInsets.only(top: 15),
       child: Form(
@@ -115,12 +169,12 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               TextFormField(
-                // controller: _senhaControler,
+                controller: _senhaControler,
                 validator: (value) {
-                  //   _senhaControler.text = value!;
-                  // if (value.isEmpty) {
-                  // return 'Campo Obrigatòrio';
-                  //}
+                  _senhaControler.text = value!;
+                  if (value == null || value.isEmpty) {
+                    return 'Campo Obrigatòrio';
+                  }
                   return null;
                 },
                 decoration: const InputDecoration(
@@ -147,7 +201,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget formUser() {
+  Widget formUsuario() {
     return Padding(
       padding: const EdgeInsets.only(top: 30),
       child: Form(
@@ -160,7 +214,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: _emailControler,
                 validator: (value) {
                   _emailControler.text = value!;
-                  if (value.isEmpty) {
+                  if (value == null || value.isEmpty) {
                     return 'Campo Obrigatòrio';
                   }
                   return null;
@@ -191,7 +245,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget textinfo() {
     return const Padding(
-      padding: EdgeInsets.only(top: 50),
+      padding: EdgeInsets.only(top: 40),
       child: Text(
         'Que bom que voce voltou !',
         style: TextStyle(
@@ -202,8 +256,8 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget logoLovepeople() {
     return Container(
-      height: 290,
-      width: 550,
+      height: 270,
+      width: 530,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -218,13 +272,13 @@ class _LoginPageState extends State<LoginPage> {
             child: Image.asset('assets/logo.png'),
           ),
           Container(
-            margin: const EdgeInsets.only(bottom: 60),
+            margin: const EdgeInsets.only(bottom: 50),
             child: const Text(
               'Lovepeople',
               style: TextStyle(
                   color: Color(0xFF3101B9),
                   fontFamily: 'Montserrat-Bold',
-                  fontSize: 10,
+                  fontSize: 14,
                   fontWeight: FontWeight.bold),
             ),
           ),
@@ -232,4 +286,6 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+  void paginaDaLista(BuildContext context) {}
 }
