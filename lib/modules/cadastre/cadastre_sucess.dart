@@ -1,5 +1,3 @@
- 
-
 import 'package:flutter/material.dart';
 
 class CadastreSucess extends StatelessWidget {
@@ -9,69 +7,83 @@ class CadastreSucess extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 152, 36, 172),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      backgroundColor: const Color.fromARGB(255, 152, 36, 172),
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(50),
-              child: Center(
-                child: Text(
-                  "Cadastro concluído!",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                  ),
-                ),
+            const SizedBox(
+              height: 200,
+            ),
+            const Text(
+              "Cadastro concluído!",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             ElevatedButton(
-              onPressed: () {},
-              child: Text("Começar", style: TextStyle(fontSize: 18)),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/homepage');
+              },
+              child: const Text(
+                "Começar",
+                style: TextStyle(fontSize: 18),
+              ),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16)),
-                side: BorderSide(color: Colors.white),
-                primary: Color.fromARGB(255, 12, 7, 155),
-                padding: EdgeInsets.symmetric(vertical: 18, horizontal: 24),
-                textStyle: TextStyle(
+                side: const BorderSide(color: Colors.white),
+                primary: const Color.fromARGB(255, 12, 7, 155),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 18, horizontal: 24),
+                textStyle: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            SizedBox(
-              height: 100,
+            const SizedBox(
+              height: 252,
             ),
-            Container(
-              height: 290,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(195),
-                    topRight: Radius.circular(195),
-                  )),
-              child: Column(
-                children: [
-                  Container(
-                    alignment: AlignmentDirectional.topCenter,
-                    child: Image.asset(
-                      "assets/images/ada_voando.png",
-                      fit: BoxFit.cover,
-                    ),
+            Stack(
+              children: [
+                Container(
+                  width: 500,
+                  height: 250,
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(195),
+                        topRight: Radius.circular(195),
+                      )),
+                  child: Column(
+                    children: [
+                      Container(
+                        alignment: AlignmentDirectional.topCenter,
+                        child: Image.asset(
+                          "images/voacoruja.png",
+                          width: 220,
+                          height: 220,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      const Text(
+                        //alignment: Alignment.topCenter,
+                        "Os ventos da programação estão indo até você",
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 152, 36, 172),
+                            fontSize: 16),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
-                  Text(
-                    "Os ventos da programação estão indo até você",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 2, 4, 71), fontSize: 16),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            )
+                ),
+              ],
+            ),
           ],
         ),
       ),

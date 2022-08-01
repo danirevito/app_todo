@@ -78,41 +78,28 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
               height: 15,
             ),
             Container(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio. Fusce consequat rhoncus convallis.',
-                style: TextStyle(
-                  fontSize: 16,
+              padding: EdgeInsets.all(5),
+              child: const ListTile(
+                title: Text(
+                  'Teste de título',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                subtitle: Text(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.delete,
+                  size: 30,
                 ),
               ),
               height: 130,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  bottomLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
-                  bottomRight: Radius.circular(20.0),
-                ),
-              ),
-              margin: EdgeInsets.only(
-                left: 30,
-                right: 30,
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Container(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio. Fusce consequat rhoncus convallis.',
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-              ),
-              height: 130,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white54,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
@@ -121,7 +108,7 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
                   bottomRight: Radius.circular(20.0),
                 ),
               ),
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 left: 30,
                 right: 30,
               ),
@@ -130,16 +117,29 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
               height: 15,
             ),
             Container(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio. Fusce consequat rhoncus convallis.',
-                style: TextStyle(
-                  fontSize: 16,
+              padding: EdgeInsets.all(5),
+              child: const ListTile(
+                title: Text(
+                  'Teste de título',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                subtitle: Text(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.delete,
+                  size: 30,
                 ),
               ),
               height: 130,
-              decoration: BoxDecoration(
-                color: Colors.white70,
+              decoration: const BoxDecoration(
+                color: Colors.white54,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
                   bottomLeft: Radius.circular(20.0),
@@ -147,7 +147,46 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
                   bottomRight: Radius.circular(20.0),
                 ),
               ),
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
+                left: 30,
+                right: 30,
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              padding: EdgeInsets.all(5),
+              child: const ListTile(
+                title: Text(
+                  'Teste de título',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                subtitle: Text(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula metus, venenatis a purus vitae, eleifend cursus odio.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.delete,
+                  size: 30,
+                ),
+              ),
+              height: 130,
+              decoration: const BoxDecoration(
+                color: Colors.white54,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  bottomLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
+                  bottomRight: Radius.circular(20.0),
+                ),
+              ),
+              margin: const EdgeInsets.only(
                 left: 30,
                 right: 30,
               ),
@@ -158,10 +197,13 @@ class _ListagemTarefasState extends State<ListagemTarefas> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.add_rounded,
-                  size: 100,
+                IconButton(
+                  icon: Icon(Icons.add_rounded),
+                  iconSize: 100,
                   color: Colors.white,
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/novatarefa');
+                  },
                 ),
               ],
             ),
