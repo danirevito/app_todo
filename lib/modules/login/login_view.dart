@@ -1,14 +1,9 @@
-import 'dart:html';
-
-import 'package:dotted_line/dotted_line.dart';
 import 'package:app_todo/modules/login/login_presenter.dart';
-import 'package:app_todo/modules/login/login_repository.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/rendering.dart';
+
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart ' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -22,30 +17,12 @@ class _LoginPageState extends State<LoginPage> {
 
   final _emailControler = TextEditingController();
   final _senhaControler = TextEditingController();
-  bool enableObscure = true;
+  bool enableObscure = false;
 
-  @override
-  void didChangeDependencies() {
-    context.read()<LoginPresenter>().validacaoToken().then((value) {
-      if (value) {
-        paginaDaLista(context);
-      }
-    });
-    super.didChangeDependencies();
-  }
-
-  //var loginPresenter = LoginPresenter(LoginPresenter());
   @override
   Widget build(BuildContext context) {
     SingleChildScrollView;
-    return Scaffold(
-      backgroundColor: Colors.purple,
-      body: Consumer<LoginPresenter>(
-        builder: (context, controller, child) {
-          return Column();
-        },
-      ),
-    );
+    return Scaffold(backgroundColor: Colors.purple, body: loginColumn());
   }
 
   Widget loginColumn() {
@@ -73,7 +50,6 @@ class _LoginPageState extends State<LoginPage> {
           reverse: true,
           child: ElevatedButton(
             onPressed: () {
-              Navigator.of(context).pushNamed('/cadastre');
               if (_formkey.currentState!.validate()) {
                 _emailControler.text;
                 _senhaControler.text;
@@ -88,6 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   );
                 };
               }
+              Navigator.of(context).pushNamed('/homepage');
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.blue.shade900,
@@ -125,7 +102,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    Navigator.of(context).pushNamed('/cadastre');
                     _formkey.currentState?.reset();
                     Future.delayed(
                       const Duration(seconds: 1),
@@ -138,25 +114,29 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget textNewUser() {
-    return RichText(
-      text: TextSpan(
-          text: 'Não possui cadastro? ',
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 17,
-          ),
-          children: <TextSpan>[
-            TextSpan(
-                text: 'Clique aqui.',
-                style: const TextStyle(
-                  color: Colors.yellow,
-                  fontSize: 17,
-                ),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
-                    //  print("clicou");
-                  }),
-          ]),
+    return Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: RichText(
+        text: TextSpan(
+            text: 'Não possui cadastro? ',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 17,
+            ),
+            children: <TextSpan>[
+              TextSpan(
+                  text: 'Clique aqui.',
+                  style: const TextStyle(
+                    color: Colors.yellow,
+                    fontSize: 17,
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Navigator.of(context).pushNamed('/cadastro');
+                      print("clicou");
+                    }),
+            ]),
+      ),
     );
   }
 
@@ -169,6 +149,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               TextFormField(
+                obscureText: !enableObscure,
                 controller: _senhaControler,
                 validator: (value) {
                   _senhaControler.text = value!;
@@ -177,7 +158,18 @@ class _LoginPageState extends State<LoginPage> {
                   }
                   return null;
                 },
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      enableObscure ? Icons.visibility : Icons.visibility_off,
+                      color: Theme.of(context).primaryColorDark,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        enableObscure = !enableObscure;
+                      });
+                    },
+                  ),
                   contentPadding: EdgeInsets.all(15),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
@@ -269,7 +261,7 @@ class _LoginPageState extends State<LoginPage> {
         alignment: Alignment.bottomCenter,
         children: [
           Center(
-            child: Image.asset('assets/logo.png'),
+            child: Image.asset("images/coruja.png"),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 50),

@@ -1,8 +1,5 @@
 import 'dart:convert';
 
-import 'package:app_todo/modules/login/login_model.dart';
-import 'package:http/http.dart ' as http;
-
 class LoginRepository {
   get http => null;
 
